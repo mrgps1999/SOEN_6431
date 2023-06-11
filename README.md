@@ -15,7 +15,7 @@ Sree Sneha Kothapalli: 40235510, Email ID: kothapallisneha9903@gmail.com
 
 Abhishek Gupta: , Email ID: abhishek.gupta.20221@mail.concordia.ca
 
-Poojitha Bhupali: , Email ID: poojitha.bhupalli333@gmail.com
+Poojitha Bhupali: 40232528, Email ID: poojitha.bhupalli333@gmail.com
 
 # Roles and Responsibilities:
 
