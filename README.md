@@ -23,19 +23,29 @@ Poojitha Bhupali: , Email ID: poojitha.bhupalli333@gmail.com
 
 ## Pratik Gondaliya
 
-
+- N System Selected: Inventory Management System
+- Github Setup
+- Content Planning (Why Inventory Management System should be selected as R.)
+- URL: https://github.com/nrudeys/Inventory-Management-System/tree/main
 
 
 ## Sree Sneha Kothapalli
 
+- N System Selected: Hotel Management System
+- Content Planning (Why Hotel Management System (N System) should be rejected)
+- URL: https://github.com/akashkolekar98/HOTEL-MANAGEMENT-SYSTEM
 
    
 ## Abhishek Gupta
 
-
+- N System Selected: Online Shop
+- Content Planning (Why Online shop (N System) should be rejected)
+- URL: https://github.com/CodecoolGlobal/online-shop-java-sql-ltkw/tree/master
 
 
 ## Poojitha Bhupali
 
-
+- N System Selected: Restaurant Management System
+- Content Planning (Why Restaurant Management System (N System) should be rejected)
+- URL: https://github.com/KubaTworek/Restaurant-Management-System
 
