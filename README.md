@@ -27,6 +27,7 @@ Poojitha Bhupali: 40232528, Email ID: poojitha.bhupalli333@gmail.com
 - Github Setup
 - Content Planning (Why Inventory Management System should be selected as R.)
 - URL: https://github.com/nrudeys/Inventory-Management-System/tree/main
+- Latex Report Preparation
 
 
 ## Sree Sneha Kothapalli
@@ -34,7 +35,7 @@ Poojitha Bhupali: 40232528, Email ID: poojitha.bhupalli333@gmail.com
 - N System Selected: Hotel Management System
 - Content Planning (Why Hotel Management System (N System) should be rejected)
 - URL: https://github.com/akashkolekar98/HOTEL-MANAGEMENT-SYSTEM
-- Latex Report Preparation
+- Latex Report Preparation.
 
    
 ## Abhishek Gupta
@@ -42,6 +43,7 @@ Poojitha Bhupali: 40232528, Email ID: poojitha.bhupalli333@gmail.com
 - N System Selected: Online Shop
 - Content Planning (Why Online shop (N System) should be rejected)
 - URL: https://github.com/CodecoolGlobal/online-shop-java-sql-ltkw/tree/master
+- Abstract Planning
 
 
 ## Poojitha Bhupali
@@ -49,4 +51,6 @@ Poojitha Bhupali: 40232528, Email ID: poojitha.bhupalli333@gmail.com
 - N System Selected: Restaurant Management System
 - Content Planning (Why Restaurant Management System (N System) should be rejected)
 - URL: https://github.com/KubaTworek/Restaurant-Management-System
+- Introduction Planning
+
 
