@@ -53,4 +53,7 @@ Poojitha Bhupali: 40232528, Email ID: poojitha.bhupalli333@gmail.com
 - URL: https://github.com/KubaTworek/Restaurant-Management-System
 - Introduction Planning
 
+## NOTE:
+All team members has equal contributions in every N systems and Selecting R.
+
 
