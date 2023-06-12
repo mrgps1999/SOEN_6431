@@ -34,6 +34,7 @@ Poojitha Bhupali: 40232528, Email ID: poojitha.bhupalli333@gmail.com
 - N System Selected: Hotel Management System
 - Content Planning (Why Hotel Management System (N System) should be rejected)
 - URL: https://github.com/akashkolekar98/HOTEL-MANAGEMENT-SYSTEM
+- Latex Report Preparation
 
    
 ## Abhishek Gupta
