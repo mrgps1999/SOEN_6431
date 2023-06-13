@@ -13,7 +13,7 @@ Pratik Gondaliya: 40194062, Email ID: pratikgondaliya7473@gmail.com
 
 Sree Sneha Kothapalli: 40235510, Email ID: kothapallisneha9903@gmail.com
 
-Abhishek Gupta: , Email ID: abhishek.gupta.20221@mail.concordia.ca
+Abhishek Gupta: 40226797, Email ID: abhishek.gupta.20221@mail.concordia.ca
 
 Poojitha Bhupali: 40232528, Email ID: poojitha.bhupalli333@gmail.com
 
