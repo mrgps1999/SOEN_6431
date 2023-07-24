@@ -1,3 +1,5 @@
+package com.project;
+
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -14,16 +16,16 @@ import java.util.prefs.BackingStoreException;
  */
 public class TestMainFrame {
 
-    private void testItemNoName() {
-        
-    }
 
     public static void main(String[] args) throws BackingStoreException {
         try {
-            MainFrame mainFrame = new MainFrame();
+            new MainFrame();
+            // If you need to do something with the MainFrame instance, add your code here.
         } catch (SQLException | FileNotFoundException | ParseException ex) {
             Logger.getLogger(TestMainFrame.class.getName()).log(
-                    Level.SEVERE, null, ex);
+                    Level.SEVERE, "Error while creating MainFrame", ex);
+            // Optionally, you can show an error message to the user if necessary.
+            // For example: JOptionPane.showMessageDialog(null, "Error while creating MainFrame: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

@@ -1,3 +1,5 @@
+package com.project;
+
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.Component;
@@ -15,15 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.prefs.BackingStoreException;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JFormattedTextField;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.RowFilter;
+import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
@@ -36,7 +30,7 @@ import javax.swing.table.TableRowSorter;
  */
 /**
  *
- * <h1>MainFrame Helper</h1>
+ * <h1>com.project.MainFrame Helper</h1>
  * This class contains the helper methods that are component based (e.g., table formatting, writing
  * to color file, retrieving input values, etc). This excludes SQL and JFreeChart based functions.
  *
@@ -48,10 +42,13 @@ public class MainFrameHelpers {
 
     MainFrame mainFrame;
     MainFrameSQLHelpers mainSQLHelpers;
-    JTable invtTable, salesTable, clone;
+    JTable invtTable;
+    JTable salesTable;
+    JTable clone;
+    private static final String yydd = "yyyy-MM-dd";
 
     public MainFrameHelpers(MainFrame mainFrame, MainFrameSQLHelpers mainSQLHelpers,
-            JTable invtTable, JTable salesTable, JTable clone) {
+                            JTable invtTable, JTable salesTable, JTable clone) {
         this.mainFrame = mainFrame;
         this.mainSQLHelpers = mainSQLHelpers;
         this.invtTable = invtTable;
@@ -72,7 +69,7 @@ public class MainFrameHelpers {
                     value = formatNumberCell(table, column, value);
                 }
 
-                setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
+                setHorizontalAlignment(SwingConstants.CENTER);
 
                 return super.getTableCellRendererComponent(table, value, isSelected, hasFocus,
                         row, column);
@@ -81,17 +78,17 @@ public class MainFrameHelpers {
 
         // Centering headers of tables
         ((DefaultTableCellRenderer) invtTable.getTableHeader().getDefaultRenderer())
-                .setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
+                .setHorizontalAlignment(SwingConstants.CENTER);
 
         ((DefaultTableCellRenderer) salesTable.getTableHeader().getDefaultRenderer()).
-                setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
+                setHorizontalAlignment(SwingConstants.CENTER);
 
         // Centering and formatting cells of table
         setTableCRToTable(tcr);
     }
 
     /**
-     * Set the MainFrame background to the color stored in the ColorPreference node. If no color if
+     * Set the com.project.MainFrame background to the color stored in the ColorPreference node. If no color if
      * previously stored, the color displayed will be light gray.
      *
      * @param settingsDialog Dialog with setting buttons
@@ -100,7 +97,7 @@ public class MainFrameHelpers {
     public void setMainFrameColor(JDialog settingsDialog) throws BackingStoreException {
         ColorPreferences cp = new ColorPreferences();
 
-        if (!java.util.prefs.Preferences.userRoot().nodeExists("ColorPreferences")) {
+        if (!java.util.prefs.Preferences.userRoot().nodeExists("com.project.ColorPreferences")) {
             cp.setColorPreference(Color.LIGHT_GRAY);
             mainFrame.getContentPane().setBackground(Color.LIGHT_GRAY);
             settingsDialog.getContentPane().setBackground(Color.LIGHT_GRAY);
@@ -119,7 +116,7 @@ public class MainFrameHelpers {
      * @return Object array of all values of inventory inputs
      */
     public Object[] getInvtInputComptsValues(Component[] invtCompts, int rowCount) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat(yydd);
         Object[] fields = new Object[11];
         int idx = 1;
 
@@ -152,7 +149,7 @@ public class MainFrameHelpers {
      * @return Object array of all values of sales inputs
      */
     public Object[] getSalesInputComptsValues(Component[] saleCompts, int rowCount) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat(yydd);
         Object[] fields = new Object[10];
         int idx = 1;
 
@@ -187,7 +184,7 @@ public class MainFrameHelpers {
      */
     public void setValuesInvtInputs(Component c, int col, Object val) throws ParseException {
         DecimalFormat fmt = new DecimalFormat("0.00");
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat df = new SimpleDateFormat(yydd);
 
         if (c instanceof JTextField) {
             if (col == 6 || col == 7) {
@@ -213,7 +210,7 @@ public class MainFrameHelpers {
     public void setValuesSaleInputs(Component c, int col, Object val)
             throws ParseException {
         DecimalFormat fmt = new DecimalFormat("0.00");
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat df = new SimpleDateFormat(yydd);
 
         if (c instanceof JTextField) {
             if (col >= 5 && col <= 8) {
@@ -378,7 +375,8 @@ public class MainFrameHelpers {
         }
 
         if (op != null && sp != null) {
-            double amount = (sp - op) * qtySold, roi;
+            double amount = (sp - op) * qtySold;
+            double roi;
 
             profit = profit == null ? amount : profit + amount;
             roi = profit / (op * mainSQLHelpers.selectSalesQtySQL(itemIDIdx + 1));

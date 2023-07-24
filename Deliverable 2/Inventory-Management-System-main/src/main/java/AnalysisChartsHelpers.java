@@ -1,3 +1,5 @@
+package com.project;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -23,7 +25,7 @@ import org.jfree.data.general.DefaultPieDataset;
  */
 /**
  *
- * <h1> MainFrame Analysis Charts Helper</h1>
+ * <h1> com.project.MainFrame Analysis Charts Helper</h1>
  * This class contains the helper methods that are used to create and modify JFreeCharts to create
  * charts based off of data presented in the SQL database tables.
  *

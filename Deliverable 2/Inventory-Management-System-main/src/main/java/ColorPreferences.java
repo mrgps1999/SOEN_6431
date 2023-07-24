@@ -1,4 +1,4 @@
-/**
+package com.project; /**
  *
  * <h1>Color Preferences</h1>
  * This class contains the methods that are used to store the color users choose for future
@@ -30,7 +30,7 @@ public class ColorPreferences {
      * Retrieve the color within the preference node.
      *
      */
-    public int getColorPreference() throws BackingStoreException {
+    public int getColorPreference() {
         return prefs.getInt("Color", Color.LIGHT_GRAY.getRGB());
     }
 }

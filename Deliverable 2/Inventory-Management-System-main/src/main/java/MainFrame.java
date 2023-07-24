@@ -1,3 +1,5 @@
+package com.project;
+
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.Component;
@@ -32,7 +34,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 /**
  * <h1>Inventory Management System Application</h1>
- * The MainFrame program implements an application in which users can create, access, or modify data
+ * The com.project.MainFrame program implements an application in which users can create, access, or modify data
  * relating to the their inventory and sales through SQL.
  *
  * @author Shahnur Syed
@@ -41,13 +43,24 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class MainFrame extends javax.swing.JFrame {
 
-    Connection con;
-    MainFrameSQLHelpers mainSQLHelpers;
-    MainFrameHelpers mainHelpers;
-    AnalysisChartsHelpers acHelpers;
+    transient Connection con;
+    transient MainFrameSQLHelpers mainSQLHelpers;
+    transient MainFrameHelpers mainHelpers;
+    transient AnalysisChartsHelpers acHelpers;
+
+    private static final String Title1 = "Title 1";
+    private static final String Title2 = "Title 2";
+
+    private static final String Title3 = "Title 3";
+
+    private static final String Tahoma = "Tahoma";
+    private static final String Total = "Total Available Items Quantity:";
+    private static final String Total_profit = "Total Profits:";
+
+    private static final String Setting = "Settings";
 
     /**
-     * Creates new form MainFrame
+     * Creates new form com.project.MainFrame
      *
      * @throws java.sql.SQLException JDBC error occurred
      * @throws java.io.FileNotFoundException File was not found
@@ -77,7 +90,7 @@ public class MainFrame extends javax.swing.JFrame {
         // Add year options to analysisYearComboBox 
         setAllUniqueYears();
 
-        // Set up MainFrame (sizing/color)
+        // Set up com.project.MainFrame (sizing/color)
         MainFrame.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         mainHelpers.setMainFrameColor(settingsDialog);
     }
@@ -189,11 +202,8 @@ public class MainFrame extends javax.swing.JFrame {
         popupJF.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         puSelIDBtn.setText("Select");
-        puSelIDBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                puSelIDBtnClicked(evt);
-            }
-        });
+        puSelIDBtn.addActionListener(evt -> puSelIDBtnClicked());
+
 
         clone.setAutoCreateRowSorter(true);
         clone.setModel(new javax.swing.table.DefaultTableModel(
@@ -201,13 +211,13 @@ public class MainFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "null"
+                Title1, Title2, Title3, "null"
             }
         ) {
             boolean[] canEdit = new boolean [] {
                 false, false, false, false
             };
-
+            @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
@@ -247,6 +257,7 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         analysisJF.setSize(new java.awt.Dimension(976, 520));
+
         analysisJF.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 analysisJFWindowClosing(evt);
@@ -255,11 +266,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         analysisPnl.setAutoscrolls(true);
 
-        totItemsLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        totItemsLbl.setText("Total Available Items Quantity:");
+        totItemsLbl.setFont(new java.awt.Font(Tahoma, 1, 18)); // NOI18N
+        totItemsLbl.setText(Total);
 
-        totProfitsLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        totProfitsLbl.setText("Total Profits:");
+        totProfitsLbl.setFont(new java.awt.Font(Tahoma, 1, 18)); // NOI18N
+        totProfitsLbl.setText(Total_profit);
 
         catBarGraphPnl.setPreferredSize(new java.awt.Dimension(878, 330));
 
@@ -345,7 +356,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font(Tahoma, 1, 12)); // NOI18N
         jLabel1.setText("Select Year:");
 
         javax.swing.GroupLayout analysisPnlLayout = new javax.swing.GroupLayout(analysisPnl);
@@ -418,7 +429,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(20, 20, 20))
         );
 
-        invtTitleLbl.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        invtTitleLbl.setFont(new java.awt.Font(Tahoma, 1, 24)); // NOI18N
         invtTitleLbl.setText("INVENTORY TABLE");
 
         invtTableClone.setModel(new javax.swing.table.DefaultTableModel(
@@ -429,13 +440,13 @@ public class MainFrame extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                Title1, Title2, Title3, "Title 4"
             }
         ));
         invtTableClone.setAutoscrolls(false);
         invtCloneSP.setViewportView(invtTableClone);
 
-        salesTitleLbl.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        salesTitleLbl.setFont(new java.awt.Font(Tahoma, 1, 24)); // NOI18N
         salesTitleLbl.setText("SALES TABLE");
 
         salesTableClone.setModel(new javax.swing.table.DefaultTableModel(
@@ -446,7 +457,7 @@ public class MainFrame extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                Title1, Title2, Title3, "Title 4"
             }
         ));
         salesTableClone.setAutoscrolls(false);
@@ -503,8 +514,8 @@ public class MainFrame extends javax.swing.JFrame {
         settingsDialog.setModal(true);
         settingsDialog.setResizable(false);
 
-        settingsLbl.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        settingsLbl.setText("Settings");
+        settingsLbl.setFont(new java.awt.Font(Tahoma, 1, 12)); // NOI18N
+        settingsLbl.setText(Setting);
 
         colorSettingsBtn.setText("Color Settings");
         colorSettingsBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -569,17 +580,19 @@ public class MainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setName("mainFrame"); // NOI18N
+
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 mainFrameWindowClosing(evt);
             }
         });
 
-        titleLbl.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        titleLbl.setFont(new java.awt.Font(Tahoma, 1, 24)); // NOI18N
         titleLbl.setText("INVENTORY MANAGEMENT SYSTEM");
 
-        searchTF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        searchTF.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         searchTF.setToolTipText("Search for entries in displayed table. Empty search resets table.");
+
         searchTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchTFActionPerformed(evt);
@@ -594,47 +607,48 @@ public class MainFrame extends javax.swing.JFrame {
         invtInputs.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         invtInputs.setRequestFocusEnabled(false);
 
-        nameLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        nameLbl.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         nameLbl.setText("Name:");
 
         nameTF.setToolTipText("Name of item");
         nameTF.setName("name"); // NOI18N
 
-        categoryLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        categoryLbl.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         categoryLbl.setText("Category:");
 
         categoryTF.setToolTipText("Category for item (e.g. Home decor)");
         categoryTF.setName("category"); // NOI18N
 
-        supplierLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        supplierLbl.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         supplierLbl.setText("Supplier:");
 
         supplierTF.setToolTipText("Name of supplier (e.g. HomeGoods)");
 
-        conditionLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        conditionLabel.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         conditionLabel.setText("Condition:");
 
         condCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "New", "Like New", "Good", "Fair", "Poor" }));
 
-        quantityLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        quantityLbl.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         quantityLbl.setText("Total Quantity:");
 
         totalQtyTF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         totalQtyTF.setToolTipText("Avaulable number of item");
 
-        originalPriceLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        originalPriceLbl.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         originalPriceLbl.setText("Original Price:");
 
         origPriceTF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
         origPriceTF.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         origPriceTF.setToolTipText("Amount item was purchased for ($)");
         origPriceTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
                 origPriceTFFocusLost(evt);
             }
         });
 
-        purchaseDateLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        purchaseDateLbl.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         purchaseDateLbl.setText("Purchasing Date:");
 
         purchaseDC.setToolTipText("Date item was purchased on");
@@ -642,13 +656,14 @@ public class MainFrame extends javax.swing.JFrame {
         purchaseDC.setMaxSelectableDate(new java.util.Date(253370786489000L));
         purchaseDC.setMinSelectableDate(new java.util.Date(-62135747911000L));
 
-        sellingDateLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        sellingDateLbl.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         sellingDateLbl.setText("Selling Date:");
 
         sellingDC.setDateFormatString("M/d/y");
 
         addItemBtn.setText("Add");
         addItemBtn.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 insertItemSQL(evt);
             }
@@ -656,24 +671,27 @@ public class MainFrame extends javax.swing.JFrame {
 
         updtItemBtn.setText("Update");
         updtItemBtn.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updtInvtSQL(evt);
+                updtInvtSQL();
             }
         });
 
         delItemBtn.setText("Delete Entry");
         delItemBtn.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                delInvtSQL(evt);
+                delInvtSQL();
             }
         });
 
-        selectIDLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        selectIDLbl.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         selectIDLbl.setText("Select ID:");
 
         selIDCB.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selIDCBSelected(evt);
+                selIDCBSelected();
             }
         });
 
@@ -792,33 +810,33 @@ public class MainFrame extends javax.swing.JFrame {
         saleInputs.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         saleInputs.setPreferredSize(new java.awt.Dimension(1319, 164));
 
-        itemIDLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        itemIDLabel.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         itemIDLabel.setText("Invt. Item ID:");
 
         selItemIDBtn.setText("Select");
         selItemIDBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selItemIDBtnSelected(evt);
+                selItemIDBtnSelected();
             }
         });
 
-        custNameLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        custNameLbl.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         custNameLbl.setText("Customer Name:");
 
         custNameTF.setToolTipText("Name or username of customer");
 
-        platformLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        platformLbl.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         platformLbl.setText("Platform:");
 
         platformTF.setToolTipText("Application used to sell item to customer");
 
-        saleSellingSDLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        saleSellingSDLbl.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         saleSellingSDLbl.setText("Selling Date:");
 
         saleSellingDC.setToolTipText("Date item was sold to customer on");
         saleSellingDC.setDateFormatString("M/d/y");
 
-        sellFeesLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        sellFeesLbl.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         sellFeesLbl.setText("Selling Fees:");
 
         sellFeesTF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
@@ -829,23 +847,25 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        processFeesLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        processFeesLbl.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         processFeesLbl.setText("Processing Fees:");
 
         processFeesTF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
         processFeesTF.setToolTipText("Fees for processing item ");
         processFeesTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
                 processFeesTFFocusLost(evt);
             }
         });
 
-        shipFeesLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        shipFeesLbl.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         shipFeesLbl.setText("Shipping Fees:");
 
         shipFeesTF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
         shipFeesTF.setToolTipText("Fees for shipping item");
         shipFeesTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
                 shipFeesTFFocusLost(evt);
             }
@@ -853,31 +873,35 @@ public class MainFrame extends javax.swing.JFrame {
 
         addSaleBtn.setText("Add");
         addSaleBtn.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                insertSaleSQL(evt);
+                insertSaleSQL();
             }
         });
 
         updtSaleBtn.setText("Update");
         updtSaleBtn.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updtSaleSQL(evt);
+                updtSaleSQL();
             }
         });
 
         delSaleBtn.setText("Delete Entry");
         delSaleBtn.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                delSaleSQL(evt);
+                delSaleSQL();
             }
         });
 
-        saleSelIDLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        saleSelIDLbl.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         saleSelIDLbl.setText("Select Sale ID:");
 
         selSaleIDCB.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selSaleIDCBSelected(evt);
+                selSaleIDCBSelected();
             }
         });
 
@@ -901,7 +925,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        sellingPriceLbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        sellingPriceLbl.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         sellingPriceLbl.setText("Selling Price:");
 
         qtySoldLbl.setText("Quantity Sold:");
@@ -916,6 +940,7 @@ public class MainFrame extends javax.swing.JFrame {
         sellingPriceTF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
         sellingPriceTF.setToolTipText("Amount each item was sold for ($)");
         sellingPriceTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
                 sellingPriceTFFocusLost(evt);
             }
@@ -923,6 +948,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         itemIDTF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
         itemIDTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
                 itemIDTFFocusLost(evt);
             }
@@ -1023,15 +1049,15 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         tabbedPnl.setToolTipText("");
-        tabbedPnl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tabbedPnl.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         tabbedPnl.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                tabbedPnlStateChanged(evt);
+                tabbedPnlStateChanged();
             }
         });
 
         invtTable.setAutoCreateRowSorter(true);
-        invtTable.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        invtTable.setFont(new java.awt.Font(Tahoma, 0, 12)); // NOI18N
         invtTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1059,8 +1085,9 @@ public class MainFrame extends javax.swing.JFrame {
         invtTable.setName("inventory"); // NOI18N
         invtTable.setShowGrid(true);
         invtTable.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
-                invtTableFocusLost(evt);
+                invtTableFocusLost();
             }
         });
         invtSP.setViewportView(invtTable);
@@ -1109,6 +1136,7 @@ public class MainFrame extends javax.swing.JFrame {
         salesTable.setName("sales"); // NOI18N
         salesTable.setShowGrid(true);
         salesTable.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
                 salesTableFocusLost(evt);
             }
@@ -1133,7 +1161,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         tabbedPnl.addTab("Sales", salePnl);
 
-        addEntryBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        addEntryBtn.setFont(new java.awt.Font(Tahoma, 1, 12)); // NOI18N
         addEntryBtn.setText("Add");
         addEntryBtn.setToolTipText("Add entry to current table");
         addEntryBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -1142,7 +1170,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        editEntryBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        editEntryBtn.setFont(new java.awt.Font(Tahoma, 1, 12)); // NOI18N
         editEntryBtn.setText("Edit");
         editEntryBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1150,16 +1178,16 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        settingsBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        settingsBtn.setText("Settings");
-        settingsBtn.setToolTipText("Settings");
+        settingsBtn.setFont(new java.awt.Font(Tahoma, 1, 12)); // NOI18N
+        settingsBtn.setText(Setting);
+        settingsBtn.setToolTipText(Setting);
         settingsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                settingsBtnClicked(evt);
+                settingsBtnClicked();
             }
         });
 
-        analysisBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        analysisBtn.setFont(new java.awt.Font(Tahoma, 1, 12)); // NOI18N
         analysisBtn.setText("Analysis");
         analysisBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1167,7 +1195,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        searchBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        searchBtn.setFont(new java.awt.Font(Tahoma, 1, 12)); // NOI18N
         searchBtn.setText("Search");
         searchBtn.setToolTipText("");
         searchBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -1240,7 +1268,7 @@ public class MainFrame extends javax.swing.JFrame {
      */
     private void addEntryBtnClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEntryBtnClicked
         if (editEntryBtn.getText().equals("Cancel Edit")) {
-            // Resetting edit (inputs were open) 
+            // Resetting edit (inputs were open)
             setEditClosedBtns();
             editEntryBtn.setText("Edit");
         }
@@ -1343,9 +1371,8 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Set up for selected item id
      *
-     * @param evt Event occurring from item id being selected (edit)
      */
-    private void selIDCBSelected(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selIDCBSelected
+    private void selIDCBSelected() {//GEN-FIRST:event_selIDCBSelected
         mainHelpers.clearInputValues(getInvtInputCompts());
 
         if (selIDCB.getSelectedItem() != null) {
@@ -1374,9 +1401,8 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Opens popupJF in order to choose row from clone table.
      *
-     * @param evt Event occurring from select sale id button being clicked(edit)
      */
-    private void selItemIDBtnSelected(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selItemIDBtnSelected
+    private void selItemIDBtnSelected() {//GEN-FIRST:event_selItemIDBtnSelected
         popupJF.pack();
         popupJF.setVisible(true);
     }//GEN-LAST:event_selItemIDBtnSelected
@@ -1384,9 +1410,8 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Set actions after the analysis frame is closed.
      *
-     * @param evt Event occurring popup select button being clicked
      */
-    private void puSelIDBtnClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puSelIDBtnClicked
+    private void puSelIDBtnClicked() {//GEN-FIRST:event_puSelIDBtnClicked
         itemIDTF.setText(puItemIDTF.getText());
         popupJF.setVisible(false);
     }//GEN-LAST:event_puSelIDBtnClicked
@@ -1394,9 +1419,8 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * This method is used to insert into the sales SQL table.
      *
-     * @param evt Event from clicking the add sale button
      */
-    private void insertSaleSQL(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertSaleSQL
+    private void insertSaleSQL() {//GEN-FIRST:event_insertSaleSQL
         Object[] salesFields = mainHelpers.getSalesInputComptsValues(getSaleInputCompts(),
                 salesTable.getRowCount() + 1);
         String sd = (String) salesFields[9];
@@ -1421,9 +1445,8 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Update entry in the sales SQL table.
      *
-     * @param evt Event from clicking the update sales button
      */
-    private void updtSaleSQL(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updtSaleSQL
+    private void updtSaleSQL() {//GEN-FIRST:event_updtSaleSQL
         int saleID = Integer.valueOf(selSaleIDCB.getSelectedItem().toString());
         Object[] inputs = mainHelpers.getSalesInputComptsValues(getSaleInputCompts(), saleID);
         Integer itemID = (Integer) inputs[2];
@@ -1466,9 +1489,8 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Delete entry in the sales SQL table.
      *
-     * @param evt Event from clicking the delete sale button
      */
-    private void delSaleSQL(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delSaleSQL
+    private void delSaleSQL() {//GEN-FIRST:event_delSaleSQL
         try (PreparedStatement stmt = con.prepareStatement("DELETE FROM sales WHERE id = ?")) {
             int id = Integer.parseInt(selSaleIDCB.getSelectedItem().toString());
             stmt.setInt(1, id);
@@ -1508,9 +1530,8 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Select sale ID
      *
-     * @param evt Event from selecting item from JComboBox
      */
-    private void selSaleIDCBSelected(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selSaleIDCBSelected
+    private void selSaleIDCBSelected() {//GEN-FIRST:event_selSaleIDCBSelected
         mainHelpers.clearInputValues(getSaleInputCompts());
 
         if (selSaleIDCB.getSelectedItem() != null) {
@@ -1551,7 +1572,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_selSaleIDCBSelected
 
-    private void tabbedPnlStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabbedPnlStateChanged
+    private void tabbedPnlStateChanged() {//GEN-FIRST:event_tabbedPnlStateChanged
 
         if (tabbedPnl.getSelectedComponent() == invtPnl) {
             saleInputs.setVisible(false);
@@ -1581,18 +1602,16 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Inventory table lost focus, unselect selected rows
      *
-     * @param evt Event from losing focus from inventory table
      */
-    private void invtTableFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_invtTableFocusLost
+    private void invtTableFocusLost() {//GEN-FIRST:event_invtTableFocusLost
         invtTable.getSelectionModel().clearSelection();
     }//GEN-LAST:event_invtTableFocusLost
 
     /**
      * Delete entry in the inventory SQL table.
      *
-     * @param evt Event from clicking the delete item button
      */
-    private void delInvtSQL(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delInvtSQL
+    private void delInvtSQL() {//GEN-FIRST:event_delInvtSQL
         try (PreparedStatement stmt = con.prepareStatement("DELETE FROM inventory WHERE id = ?")) {
             int id = Integer.parseInt(selIDCB.getSelectedItem().toString());
             stmt.setInt(1, id);
@@ -1625,9 +1644,8 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Update entry in the inventory SQL table.
      *
-     * @param evt Event from clicking the update item button
      */
-    private void updtInvtSQL(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updtInvtSQL
+    private void updtInvtSQL() {//GEN-FIRST:event_updtInvtSQL
         int selectItemID = Integer.valueOf((String) selIDCB.getSelectedItem()),
                 rowIndx = mainHelpers.locateTableIDRow(
                         (DefaultTableModel) invtTable.getModel(), selectItemID);
@@ -1673,9 +1691,8 @@ public class MainFrame extends javax.swing.JFrame {
      * - Print Inventory Table<br>
      * - Print Sales Table
      *
-     * @param evt Event from clicking the settings button
      */
-    private void settingsBtnClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsBtnClicked
+    private void settingsBtnClicked() {//GEN-FIRST:event_settingsBtnClicked
         settingsDialog.pack();
         settingsDialog.setLocationRelativeTo(null);
         settingsDialog.setVisible(true);
@@ -1734,8 +1751,8 @@ public class MainFrame extends javax.swing.JFrame {
         if (analysisYrCB.getItemCount() != 0
                 && analysisYrCB.isEnabled()) {
             // Reset in case of previous viewing
-            totItemsLbl.setText("Total Available Items Quantity:");
-            totProfitsLbl.setText("Total Profits:");
+            totItemsLbl.setText(Total);
+            totProfitsLbl.setText(Total_profit);
 
             if (catBarGraphPnl.getComponentCount() != 0) {
                 catBarGraphPnl.remove(0);
@@ -1958,8 +1975,8 @@ public class MainFrame extends javax.swing.JFrame {
      */
     private void analysisJFWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_analysisJFWindowClosing
         // When analysis is closed, the counters are reset
-        totItemsLbl.setText("Total Available Items Quantity:");
-        totProfitsLbl.setText("Total Profits:");
+        totItemsLbl.setText(Total);
+        totProfitsLbl.setText(Total_profit);
     }//GEN-LAST:event_analysisJFWindowClosing
 
     /**
@@ -2045,7 +2062,7 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Set inputs enabled or disabled based on parameter value.
      *
-     * @param isVisible flag to indicate if inputs are to be enabled or disabled
+     * @param isvisible flag to indicate if inputs are to be enabled or disabled
      */
     private void setInputsEnabled(Boolean isEnabled) {
         // Get input values depending on which table is being displayed
@@ -2310,7 +2327,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     /**
      * Sets the color to the mainFrame and settings background. Also, stores color into
-     * ColorPreferences node for future references.
+     * com.project.ColorPreferences node for future references.
      *
      * @param color Color to apply
      */

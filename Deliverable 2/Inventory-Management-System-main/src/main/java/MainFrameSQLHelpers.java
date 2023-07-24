@@ -1,3 +1,5 @@
+package com.project;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 /**
- * <h1>MainFrame SQL Helpers</h1>
+ * <h1>com.project.MainFrame SQL Helpers</h1>
  * This class contains the SQL helpers methods.
  *
  *
