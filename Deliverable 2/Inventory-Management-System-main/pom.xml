@@ -51,7 +51,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>MainFrame</mainClass>
+                            <mainClass>com.project.MainFrame</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
