@@ -65,35 +65,35 @@ Poojitha Bhupali: 40232528, Email ID: poojitha.bhupalli333@gmail.com
 
 -> Equal Contribution in Report Preparation.
 
-1)Category: Exception Handling
+1) Category: Exception Handling
 
 Error: A “NullPointerException” Could Be Thrown; getMonth() Can Return Null.
 Code Smell Type: Bug
 Summary:
 The code does not handle the possibility of a NullPointerException when calling getMonth(), which can return null. Proper null-checking or defensive programming should be implemented to avoid potential runtime exceptions.
 
-2)Category: Code Organization
+2) Category: Code Organization
 
 Error: Define a Constant Instead of Duplicating the Literal “Month” Three Times.
 Code Smell Type: Maintainability
 Summary:
 The literal "Month" is duplicated three times in the code, which can lead to maintenance issues and decrease code readability. It's recommended to define a constant with a descriptive name to avoid duplication and improve code maintainability.
 
-3)Category: Code Formatting
+3) Category: Code Formatting
 
 Error: Declare “Sales Table” on a Separate Line.
 Code Smell Type: Readability
 Summary:
 Declaring the variable "Sales Table" on the same line could hinder code readability. It's better to declare each variable on a separate line, making the code more organized and easier to understand.
 
-4)Category: Code Logic
+4) Category: Code Logic
 
 Error: Add Default Case to This Switch.
 Code Smell Type: Bug
 Summary:
 The switch statement lacks a default case, which can result in unexpected behavior when the switch expression does not match any defined case. Adding a default case allows graceful handling of such situations and improves code robustness.
 
-5)Category: Logging
+5) Category: Logging
 
 Error: Replace This Use of System.out or System.err by a Logger.
 Code Smell Type: Maintainability
