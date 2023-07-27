@@ -57,14 +57,15 @@ Poojitha Bhupali: 40232528, Email ID: poojitha.bhupalli333@gmail.com
 
 ## Pratik Gondaliya
 
-1-> A “NullPointerException” could be thrown; getMonth() can be return null.(Line:432,FileName: AnalysisChartsHelpers.java)
-2-> Define a constant instead of duplicating this literal “Month” three times.(Line:40, FileName: AnalysisChartsHelpers.java)
-3-> Declare “Sales Table” on a separate line.(Line:39, FileName: AnalysisChartsHelpers.java)
-4-> Add Default case to this switch.(Line:436, FileName: AnalysisChartsHelpers.java)
-5-> Replace this use of System.out or System.err by a logger.(Line:64,FileName: AnalysisChartsHelpers.java) 
+* A “NullPointerException” could be thrown; getMonth() can be return null.(Line:432,FileName: AnalysisChartsHelpers.java)
+* Define a constant instead of duplicating this literal “Month” three times.(Line:40, FileName: AnalysisChartsHelpers.java)
+* Declare “Sales Table” on a separate line.(Line:39, FileName: AnalysisChartsHelpers.java)
+   Add Default case to this switch.(Line:436, FileName: AnalysisChartsHelpers.java)
+* Replace this use of System.out or System.err by a logger.(Line:64,FileName: AnalysisChartsHelpers.java) 
 
--> Equal Contribution in Report Preparation.
+* Equal Contribution in Report Preparation.
 
+  
 1) Category: Exception Handling
 
 Error: A “NullPointerException” Could Be Thrown; getMonth() Can Return Null.
@@ -103,13 +104,14 @@ Directly using System.out or System.err for logging is not recommended in produc
 
 ## Sree Sneha Kothapalli
 
-1->  Move this file to named package.(FileName: AnalysisChartsHelper.java)
-2->  Declare “Platform” on separate line.(Line:207, FileName: AnalysisChartsHelpers.java)
-3-> Define a constant instead of duplicating this literal “Title 1” 3 times.(Line: 51, FileName: MainFrame.java)
-4-> Remove the declaration of thrown exception ‘java.util.prefs.BackingStoreException’, as it cannot be thrown from method’s body. (Line: 38, FileName: ColorPreferences.java)
-5-> Make ‘con’ serializable’ or ‘transient’.(Line: 46, FileName: MainFrame.java)
+*  Move this file to named package.(FileName: AnalysisChartsHelper.java)
+* Declare “Platform” on separate line.(Line:207, FileName: AnalysisChartsHelpers.java)
+* Define a constant instead of duplicating this literal “Title 1” 3 times.(Line: 51, FileName: MainFrame.java)
+* Remove the declaration of thrown exception ‘java.util.prefs.BackingStoreException’, as it cannot be thrown from method’s body. (Line: 38, FileName: ColorPreferences.java)
+* Make ‘con’ serializable’ or ‘transient’.(Line: 46, FileName: MainFrame.java)
 
--> Equal Contribution in Report Preparation.
+* Equal Contribution in Report Preparation.
+
 
 1) Category: Code Organization
 
@@ -145,15 +147,15 @@ Summary: The variable 'con' is not serializable, and attempting to serialize it 
    
 ## Abhishek Gupta
 
-1-> Define a constant instead of duplicating this literal “yyyy-MM-dd” 4 times.(Line: 48, FileName: MainFrameHelper.java)
-2-> Declare “roi” on seperate line.(Line: 379, FileName: MainFrameHelper.java)
-3-> Remove this useless assignment to local variable “mainFrame”.(Line: 22, FileName: TestMainFrame.java)
-4-> Remove this unused private “testItemNoName” method.(Line:24, FileName: TestMainFrame.java)
-5-> Use static access with “Javax.swing.SwingConstants” for “CENTER”.(Line:72,MainFrameHelpers.java)
+* Define a constant instead of duplicating this literal “yyyy-MM-dd” 4 times.(Line: 48, FileName: MainFrameHelper.java)
+* Declare “roi” on seperate line.(Line: 379, FileName: MainFrameHelper.java)
+* Remove this useless assignment to local variable “mainFrame”.(Line: 22, FileName: TestMainFrame.java)
+* Remove this unused private “testItemNoName” method.(Line:24, FileName: TestMainFrame.java)
+* Use static access with “Javax.swing.SwingConstants” for “CENTER”.(Line:72,MainFrameHelpers.java)
 
--> Equal Contribution in Report Preparation.
+* Equal Contribution in Report Preparation.
 
-
+  
 1) Category: Code Organization
 
 Error: Define a Constant Instead of Duplicating the Literal “yyyy-MM-dd” 4 Times.
@@ -192,16 +194,16 @@ The code is accessing the constant "CENTER" without static access from the "Java
 
 ## Poojitha Bhupali
 
-1-> Add the ‘@Override’ annotation above this method signature.(Line:220, FileName: MainFrame.java)
-2-> Define a constant instead of duplicating this literal “Tahoma” 33 times.(Line:56, FileName: MainFrame.java)
-3-> Remove this unused method parameter ‘evt’.(Line:205, FileName: MainFrame.java)
-4-> Declare “pf” and all following declarations on a separate line.(Line:256, FileName: AnalysisChartsHelper.java)
-5-> Remove useless curly braces around statement.(Line:260, FileName: AnalysisChartsHelper.java)
+* Add the ‘@Override’ annotation above this method signature.(Line:220, FileName: MainFrame.java)
+* Define a constant instead of duplicating this literal “Tahoma” 33 times.(Line:56, FileName: MainFrame.java)
+* Remove this unused method parameter ‘evt’.(Line:205, FileName: MainFrame.java)
+* Declare “pf” and all following declarations on a separate line.(Line:256, FileName: AnalysisChartsHelper.java)
+* Remove useless curly braces around statement.(Line:260, FileName: AnalysisChartsHelper.java)
 
--> Equal Contribution in Report Preparation.
+* Equal Contribution in Report Preparation.
 
+  
 1) Category: Code Quality/Annotation
-
 Error: Add the ‘@Override’ annotation above this method signature.
 Code Smell Type: Maintainability
 Summary: The '@Override' annotation is a helpful indicator that a method is intended to override a superclass or interface method. Adding this annotation improves code maintainability and can catch potential issues at compile time.
@@ -231,6 +233,6 @@ Code Smell Type: Maintainability
 Summary: Having unnecessary curly braces around a statement can make the code look cluttered and harder to read. Removing the unnecessary braces improves code maintainability.
 
 ##### NOTE:
-D1: All team members has equal contributions in every N systems and Selecting R.
-D2: All team members has equal contributions in solving code smells, Vulnerabilities and Bugs.
+* D1: All team members has equal contributions in every N systems and Selecting R.
+* D2: All team members has equal contributions in solving code smells, Vulnerabilities and Bugs.
 
