@@ -80,12 +80,13 @@ Code Smell Type: Maintainability
 Summary:
 The literal "Month" is duplicated three times in the code, which can lead to maintenance issues and decrease code readability. It's recommended to define a constant with a descriptive name to avoid duplication and improve code maintainability.
 
-3) Category: Code Formatting
 
-Error: Declare “Sales Table” on a Separate Line.
-Code Smell Type: Readability
-Summary:
-Declaring the variable "Sales Table" on the same line could hinder code readability. It's better to declare each variable on a separate line, making the code more organized and easier to understand.
+3) Category: Code Smell
+
+Error: Missing Try-with-resources or Finally Clause for "PreparedStatement"
+Code Smell Type: Resource Management
+Summary: 
+In this code, there is a missing try-with-resources or finally clause to properly handle the "PreparedStatement" object. The "PreparedStatement" is a resource that requires proper cleanup after its usage to release any associated system resources and avoid potential resource leaks.
 
 4) Category: Code Logic
 
